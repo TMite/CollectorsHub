@@ -1,0 +1,12 @@
+<h1>General Posts</h1>
+<br>
+<% @posts.each do |post|%>
+<h2><%= post.title %></h2>
+<br>
+<%= image_tag(post.image, style: 'width: 20%') %>
+<br>
+<%= post.body%>
+ <br>
+<%= link_to "Read Post", post %>
+<%end %>
+<br>
