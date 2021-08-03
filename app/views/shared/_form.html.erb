@@ -1,18 +1,22 @@
 <%= form_for @post do |f| %>
 
-<div class="mb-3">
+<div class="field form-group">
     <%= f.label :title %>
     <%= f.text_field :title %><br>
 </div>
 <br>
-<div class="mb-3">
+<div class="field form-group">
     <%= f.label :body %>
     <%= f.text_field :body %><br>
 </div>
 <br>
-<div class="mb-3">
+<div class="field form-group">
     <%=f.label :image %>
     <%=f.file_field :image %>
 </div>
+<div class="field form-group">
+    <%= f.number_field :user_id, id: :post_user_id, class: "form-control", value: Current.user.id, type: :hidden %>
+</div>
+<%= Current.user.id %>
 <%= f.submit %>
 <%end %>

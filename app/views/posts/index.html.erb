@@ -1,12 +1,22 @@
 <h1>General Posts</h1>
 <br>
-<% @posts.each do |post|%>
-<h2><%= post.title %></h2>
-<br>
-<%= image_tag(post.image, style: 'width: 20%') %>
-<br>
-<%= post.body%>
- <br>
-<%= link_to "Read Post", post %>
+<% @posts.each_slice(3) do |posts|%>
+    <div class="row">
+    <% posts.each do |post|%>
+        <div class="col-md-4">
+        <h2><%= post.title %></h2>
+        <br>
+        <div>
+        <%=User.find(post.user_id).email%>
+        </div>
+        <br>
+        <%= image_tag(post.image, style: 'width: 50%') %>
+        <br>
+        <%= post.body%>
+        <br>
+        <%= link_to "Read Post", post %>
+        </div>
+        <%end %>
+    </div>
 <%end %>
 <br>
