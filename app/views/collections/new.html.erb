@@ -1,0 +1,26 @@
+<%= form_for @collection do |f| %>
+
+<div class="field form-group">
+    <%= f.label :Title %>
+    <%= f.text_field :Title %><br>
+</div>
+<br>
+<div class="field form-group">
+    <%= f.label :Description %>
+    <%= f.text_field :Description %><br>
+</div>
+<br>
+<div class="field form-group">
+    <%= f.label :Height %>
+    <%= f.number_field :Height %><br>
+</div>
+<br>
+<div class="field form-group">
+    <%=f.label :image %>
+    <%=f.file_field :image %>
+</div>
+<div class="field form-group">
+    <%= f.number_field :user_id, id: :collection_user_id, class: "form-control", value: Current.user.id, type: :hidden%>
+</div>
+<%= f.submit %>
+<%end %>

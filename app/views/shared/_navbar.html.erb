@@ -15,13 +15,21 @@
         <li class="nav-item">
           <a class="nav-link" href="/posts/new">New Post</a>
         </li>
+        <%if Current.user %>
+        <li class="nav-item">
+          <a class="nav-link" href="/collections">Your Collections</a>
+        </li>
+        <%end %>
       </ul>
       </ul>
       <ul class = "navbar-nav ms-auto mb-2 mb-lg-0">
       <%if Current.user %>
       <li class="nav-item">
-        <%= link_to Current.user.email, class: "nav-link" %>
+        <%= link_to "New Collection", new_collection_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to Current.user.email, collections_path, class: "nav-link" %>
+      </li>      
         <%= button_to "logout",logout_path, method: :delete, class: "btn btn-sm btn-outline-secondary" %>
       <%else %>
       <li class="nav-item">

@@ -1,0 +1,17 @@
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Your Collections</h1>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+    <% @collections.each do |collection|%>
+        <%if collection.user_id == Current.user.id %>
+            <div class="col-md-4">
+            <h2><%= link_to collection.Title, collection %></h2>
+            <br>
+            <%= link_to image_tag(collection.image, style: 'width: 50%'), collection %>
+            </div>
+        <%end %>
+    <%end %>
+    </div>
+</div>
