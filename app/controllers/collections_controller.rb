@@ -1,7 +1,12 @@
 class CollectionsController < ApplicationController 
     before_action :find_collection, only: [:show, :edit, :update, :destroy]
+    before_action :find_collections, only: [:show, :edit, :update, :destroy]
     def index
+        if Current.user == nil
+            redirect_to sign_in_path
+        else
         @collections = Collection.all.order("created_at DESC")
+        end
     end
 
     def new
@@ -18,7 +23,12 @@ class CollectionsController < ApplicationController
     end
 
     def show
-
+        # if Current.user.id != @collection.user_id
+        #     redirect_to root_path, notice: "You can't access that collection"
+        # end
+        if Current.user.id != @collection.user_id
+            redirect_to collections_path, notice: "You can't access that collection"
+        end
     end
   
     def edit
@@ -34,9 +44,13 @@ class CollectionsController < ApplicationController
 
     def find_collection
         @collection = Collection.find(params[:id])
-      end
+    end
+    def find_collections
+        @collections = Collection.all.order("created_at DESC")
+    end
+
     def collection_params
         params.require(:collection).permit(:Title, :Description, :Height, :image, :user_id)
-      end
+    end
 end
 

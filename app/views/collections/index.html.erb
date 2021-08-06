@@ -5,12 +5,14 @@
 <div class="container">
     <div class="row">
     <% @collections.each do |collection|%>
+        <%if Current.user.id != nil %>
         <%if collection.user_id == Current.user.id %>
             <div class="col-md-4">
-            <h2><%= link_to collection.Title, collection %></h2>
+            <h2><%= link_to collection.Title, collection, class: "nav-link" %></h2>
             <br>
-            <%= link_to image_tag(collection.image, style: 'width: 50%'), collection %>
+            <%= link_to image_tag(collection.image, style: 'width: 80%'), collection %>
             </div>
+        <%end %>
         <%end %>
     <%end %>
     </div>
