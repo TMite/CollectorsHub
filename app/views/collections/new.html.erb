@@ -19,8 +19,9 @@
     <%=f.label :image %>
     <%=f.file_field :image %>
 </div>
+<br>
 <div class="field form-group">
     <%= f.number_field :user_id, id: :collection_user_id, class: "form-control", value: Current.user.id, type: :hidden%>
 </div>
-<%= f.submit %>
+<%= f.submit class: "btn btn-primary" %>
 <%end %>

@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
     def new
         if Current.user == nil
-            redirect_to root_path, notice: "You are not signed in"
+            redirect_to sign_in_path, notice: "You are not signed in"
         else
             @post = Post.new
         end

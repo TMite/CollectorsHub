@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :main
   resources :posts
   resources :collections
+  resources :profiles
   
   get "register", to: "register#new"
   post "register", to: "register#create"

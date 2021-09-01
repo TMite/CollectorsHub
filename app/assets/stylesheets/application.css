@@ -14,3 +14,18 @@
  *= require_self
  */
 
+body{
+    margin: 50px;
+    background-color: rgb(184, 177, 197);
+}
+h1 {
+    color: rgb(0, 2, 0);
+  }
+
+h2 {
+    color: rgb(0, 2, 0);
+  }
+  
+.collections-fonts p{
+    color: rgb(155, 14, 14);
+}

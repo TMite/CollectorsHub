@@ -1,0 +1,25 @@
+.collections-fonts-Description-H p{
+    font-size: 1.75em;
+    color: rgb(0, 0, 0);
+}
+
+.collections-fonts-Description-B p{
+    font-size: 1.0em;
+    color: rgb(155, 14, 14);
+}
+
+.container {
+    height: 800px;
+    position: relative;
+    border: 3px solid green;
+    background-color: rgb(253, 251, 255);
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
