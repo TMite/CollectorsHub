@@ -17,6 +17,5 @@
 <div class="field form-group">
     <%= f.number_field :user_id, id: :post_user_id, class: "form-control", value: Current.user.id, type: :hidden %>
 </div>
-<%= Current.user.id %>
 <%= f.submit %>
 <%end %>

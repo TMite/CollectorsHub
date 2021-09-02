@@ -1,8 +1,6 @@
 <h1>General Posts</h1>
 <br>
-<% @posts.each_slice(3) do |posts|%>
-    <div class="row">
-    <% posts.each do |post|%>
+    <% @posts.each do |post|%>
         <div class="col-md-4">
         <h2><%= post.title %></h2>
         <div>
@@ -10,12 +8,12 @@
         </div>
         <br>
         <%= image_tag(post.image, style: 'width: 50%') %>
-        <br>
-        <%= post.body%>
+  
+        <%= truncate(post.body, :length => 50)%>
         <br>
         <%= link_to "Read Post", post %>
+        <br>
         </div>
         <%end %>
-    </div>
-<%end %>
+
 <br>
