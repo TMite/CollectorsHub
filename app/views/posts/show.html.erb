@@ -12,3 +12,8 @@
 <%= link_to "Edit Post", edit_post_path(@post) %>
 <br>
 <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
+<br>
+<h2> <%= @post.comments.count %> Comments</h2>
+<br>
+<%= render 'comments/cForm' %>
+<%= render @post.comments %>

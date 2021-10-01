@@ -9,17 +9,17 @@
 }
 
 .container {
-    height: 1200px;
+    width: 100%;
     position: relative;
     border: 3px solid green;
     background-color: rgb(253, 251, 255);
   }
-  
-  .center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  .collectionBack{
+    border: 3px solid rgb(4, 77, 4);
+    transform: translateX(-100px);
   }
+
+  .transformPage{
+    transform: translateX(100px);
+  }
+  

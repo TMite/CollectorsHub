@@ -3,7 +3,7 @@
 </div>
 <br>
 <div class="container">
-    <div class="row">
+    <div class="row transformPage">
     <%if Current.user.id != nil %>
         <% @collections.each do |collection|%>
         
@@ -21,5 +21,9 @@
         <%end %>
     <%end %>
     </div>
+    <br>
 </div>
+<br>
+<div class="transformPage">
 <%= pagy_bootstrap_nav(@pagy).html_safe%>
+</div>

@@ -5,7 +5,9 @@ class RegisterController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
+        name = User.find_by(email: @user.email)
+        if name == nil
+            @user.save
             session[:user_id] = @user.id
             redirect_to root_path, notice: "Sucessful Sign Up"
         else

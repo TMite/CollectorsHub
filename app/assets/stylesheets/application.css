@@ -29,3 +29,6 @@ h2 {
 .collections-fonts p{
     color: rgb(155, 14, 14);
 }
+.bolding{
+  font-weight: 900;
+}

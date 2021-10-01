@@ -1,14 +1,14 @@
 <%= form_for @collection do |f| %>
-
+<br>
 <div class="field form-group">
     <%= f.label :Title %>
     <%= f.text_field :Title %><br>
 </div>
 <br>
-<div class="field form-group">
+
     <%= f.label :Description %>
-    <%= f.text_field :Description %><br>
-</div>
+    <%= f.text_area :Description %><br>
+
 <br>
 <div class="field form-group">
     <%= f.label :Height %>

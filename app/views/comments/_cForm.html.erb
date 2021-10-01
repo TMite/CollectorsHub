@@ -1,0 +1,10 @@
+<%= form_for ([@post,@post.comments.build]) do |f|%>
+    <p><%=f.label :email %>
+    <%=f.text_field :email, value: Current.user.email, type: :hidden %>
+    </p>
+    <p><%=f.label :body %>
+    <%= f.text_area :body %>
+    </p>
+    <br>
+    <%= f.submit class: "btn btn-primary"%>
+<%end %>

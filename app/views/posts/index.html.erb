@@ -11,7 +11,7 @@
   
         <%= truncate(post.body, :length => 50)%>
         <br>
-        <%= link_to "Read Post", post %>
+        <%= button_to "Read Post", post, :method => "get" %>
         <br>
         </div>
         <%end %>
