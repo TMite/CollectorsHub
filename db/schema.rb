@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_034849) do
+ActiveRecord::Schema.define(version: 2021_10_07_031737) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,10 +43,11 @@ ActiveRecord::Schema.define(version: 2021_09_03_034849) do
   create_table "collections", force: :cascade do |t|
     t.string "Title"
     t.text "Description"
-    t.integer "Height"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.boolean "SFW"
+    t.boolean "Private"
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_034849) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.boolean "SFW"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_034849) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -2,7 +2,8 @@ class PostsController < ApplicationController
     before_action :find_post, only: [:show, :edit, :update, :destroy]
     before_action :find_user, only: [:show, :edit, :update, :destroy]
     def index
-      @posts = Post.all.order("created_at DESC")
+      @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
+      
       
     end
 
@@ -50,7 +51,7 @@ class PostsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
     end
     def post_params
-        params.require(:post).permit(:title, :body, :image, :user_id)
+        params.require(:post).permit(:title, :body, :SFW, :image, :user_id)
     end
 end
 

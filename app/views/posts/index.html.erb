@@ -1,19 +1,26 @@
 <h1>General Posts</h1>
 <br>
-    <% @posts.each do |post|%>
-        <div class="col-md-4">
-        <h2><%= post.title %></h2>
-        <div>
-        <%=User.find(post.user_id).email%>
+<div class="container">
+    <div class="row">
+        <% @posts.each do |post|%>
+            <div class="col-md-4">
+                <h2><%= post.title %></h2>
+                
+                <%=User.find(post.user_id).username%>
+                
+                <br>
+                <%= image_tag(post.image, style: 'width: 50%') %>
+                <br>
+                <%= truncate(post.body, :length => 50)%>
+                <br>
+                <%= button_to "Read Post", post, :method => "get" %>
+                <br>
+            </div>
+            <%end %>
         </div>
-        <br>
-        <%= image_tag(post.image, style: 'width: 50%') %>
-  
-        <%= truncate(post.body, :length => 50)%>
-        <br>
-        <%= button_to "Read Post", post, :method => "get" %>
-        <br>
-        </div>
-        <%end %>
-
+    </div>
+</div>
 <br>
+<div class="transformPage">
+<%= pagy_bootstrap_nav(@pagy).html_safe%>
+</div>

@@ -6,13 +6,18 @@
 </div>
 <br>
 <div class="field form-group">
+    <%=f.label :image %>
+    <%=f.file_field :image %>
+</div>
+<br>
+<div class="field form-group">
     <%= f.label :body %>
     <%= f.text_area :body %><br>
 </div>
 <br>
 <div class="field form-group">
-    <%=f.label :image %>
-    <%=f.file_field :image %>
+    <%= f.label :SFW %>
+    <%= f.check_box :SFW, checked: true %><br>
 </div>
 <br>
 <div class="field form-group">

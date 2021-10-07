@@ -9,11 +9,11 @@
         
             <%if collection.user_id == Current.user.id %>
                 <div class="col-md-4">
-                <div class="collections-font-Description-H">
-                <p><h2><em><%= link_to collection.Title, collection, class: "nav-link" %></em></h2></p>
-                </div>
-                <br>
-                <%= link_to image_tag(collection.image, style: 'width: 50%'), collection %>
+                    <div class="collections-font-Description-H">
+                        <p><h2><em><%= link_to collection.Title, collection, class: "nav-link" %></em></h2></p>
+                    </div>
+                    <br>
+                    <%= link_to image_tag(collection.image, style: 'width: 50%'), collection %>
                 </div>
                 <%elsif collection.user_id != Current.user.id %>
                 <%next %>

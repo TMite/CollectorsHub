@@ -5,19 +5,24 @@
     <%= f.text_field :Title %><br>
 </div>
 <br>
-
+<div class="area form-group">
     <%= f.label :Description %>
     <%= f.text_area :Description %><br>
-
-<br>
-<div class="field form-group">
-    <%= f.label :Height %>
-    <%= f.number_field :Height %><br>
 </div>
 <br>
 <div class="field form-group">
     <%=f.label :image %>
     <%=f.file_field :image %>
+</div>
+<br>
+<div class="field form-group">
+    <%=f.label :SFW %>?
+    <%=f.check_box :SFW, checked: true %>
+</div>
+<br>
+<div class="field form-group">
+    <%=f.label :Private %>?
+    <%=f.check_box :Private, checked: true %>
 </div>
 <br>
 <div class="field form-group">
