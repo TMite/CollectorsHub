@@ -1,10 +1,10 @@
 class PostsController < ApplicationController   
     before_action :find_post, only: [:show, :edit, :update, :destroy]
     before_action :find_user, only: [:show, :edit, :update, :destroy]
+    before_action :get_switch, only: [:change, :index, :show, :edit, :update, :destroy]
     def index
-      @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
-      
-      
+        #@pagy, @posts = pagy(Post.all.where(SFW: false).order("created_at DESC"), items: 9)
+        @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
 
     def new
@@ -29,18 +29,32 @@ class PostsController < ApplicationController
     end
   
     def edit
-    
+        
     end
-
+    def update
+        if @post.update(post_params)
+            redirect_to @post
+        else
+            render 'edit'
+        end
+    end
     def destroy
         if Current.user == nil || Current.user.id != @post.user_id
             redirect_to root_path, notice: "You can't delete someone elses post"
         else
             @post.destroy
             redirect_to root_path, notice: "Post Deleted"
-        end
+        end      
+    end
 
+    def change
+        @posts.each do |post|
+            #post.toggle!(:SFW)
+            post.update(SFW: !post.SFW?)
+        end
         
+        @pagy, @posts = pagy(Post.all.where(SFW: true).order("created_at DESC"), items: 9)
+        render 'change'
     end
     private
 
@@ -49,6 +63,9 @@ class PostsController < ApplicationController
     end
     def find_user
         @user = User.find_by(id: session[:user_id])
+    end
+    def get_switch
+        @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
     def post_params
         params.require(:post).permit(:title, :body, :SFW, :image, :user_id)

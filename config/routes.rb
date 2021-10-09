@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root "main#index"
   resources :main
   resources :posts do 
+    collection do 
+      get :change
+    end
     resources :comments
   end
   resources :collections

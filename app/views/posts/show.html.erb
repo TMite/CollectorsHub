@@ -8,12 +8,12 @@
 <br>
 <div>
     <%= image_tag(@post.image, style: 'width: 50%')%>
-    <br>
-    <%= @post.SFW %>
 </div>
-<%= link_to "Edit Post", edit_post_path(@post) %>
 <br>
-<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
+<%=@post.SFW %>
+<%= button_to "Edit Post", edit_post_path(@post), method: :get %>
+<br>
+<%= button_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
 <br>
 <h2> <%= @post.comments.count %> Comments</h2>
 <br>

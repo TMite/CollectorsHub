@@ -36,6 +36,13 @@ class CollectionsController < ApplicationController
     
     end
 
+    def update
+        if @collection.update(collection_params)
+            redirect_to @collection
+        else
+            render 'edit'
+        end
+    end
     def destroy
         @collection.destroy
         redirect_to root_path
