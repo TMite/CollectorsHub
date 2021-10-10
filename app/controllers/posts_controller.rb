@@ -1,10 +1,11 @@
 class PostsController < ApplicationController   
     before_action :find_post, only: [:show, :edit, :update, :destroy]
     before_action :find_user, only: [:show, :edit, :update, :destroy]
-    before_action :get_switch, only: [:change, :index, :show, :edit, :update, :destroy]
+    before_action :get_posts, only: [:change, :index, :show, :edit, :update, :destroy]
+    @switch = false
     def index
-        #@pagy, @posts = pagy(Post.all.where(SFW: false).order("created_at DESC"), items: 9)
         @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
+        #@pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
 
     def new
@@ -47,15 +48,19 @@ class PostsController < ApplicationController
         end      
     end
 
-    def change
-        @posts.each do |post|
-            #post.toggle!(:SFW)
-            post.update(SFW: !post.SFW?)
-        end
-        
-        @pagy, @posts = pagy(Post.all.where(SFW: true).order("created_at DESC"), items: 9)
-        render 'change'
-    end
+      def change
+          @posts.each do |post|
+              #post.toggle!(:SFW)
+              post.update(SFW: !post.SFW?)
+          end
+          #redirect_to posts_path
+          @pagy, @posts = pagy(Post.all.where(SFW: true).order("created_at DESC"), items: 9)
+          render 'index'
+      end
+    #  def change
+    #      @pagy, @posts = pagy(Post.all.where(SFW: @switch).order("created_at DESC"), items: 9)
+    #      render 'index'
+    #  end
     private
 
     def find_post
@@ -64,7 +69,7 @@ class PostsController < ApplicationController
     def find_user
         @user = User.find_by(id: session[:user_id])
     end
-    def get_switch
+    def get_posts
         @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
     def post_params

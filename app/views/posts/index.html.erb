@@ -1,6 +1,9 @@
 <h1>General Posts</h1>
 <br>
-<%=button_to "Change", change_posts_path, method: :get %>
+<div id = "outer">
+<div class = "inner"><%=button_to "Change", change_posts_path, method: :get %></div>
+<div class = "inner"><%=button_to "Show All", posts_path, method: :get %></div>
+</div>
 <br>
 <div class="container">
     <div class="row">
