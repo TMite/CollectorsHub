@@ -24,6 +24,8 @@
         <%=form.label :password_confirmation %>
         <%=form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
     </div>
+        <%=form.label "Would like to view NSFW content?(This can be changed later)" %><br>
+        <%=form.check_box :SFW, checked: true %>
     <div class="mb-3">
         <%= form.submit%>
     </div>

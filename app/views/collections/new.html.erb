@@ -25,6 +25,15 @@
     <%=f.check_box :Private, checked: true %>
 </div>
 <br>
+<%
+=begin%>
+ <div class="field form-group">
+    <%= f.label :all_tags %>
+    <%= f.text_field :all_tags%><br>
+</div> 
+<%
+=end%>
+<br>
 <div class="field form-group">
     <%= f.number_field :user_id, id: :collection_user_id, class: "form-control", value: Current.user.id, type: :hidden%>
 </div>

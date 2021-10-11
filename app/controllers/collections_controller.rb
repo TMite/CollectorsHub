@@ -5,8 +5,8 @@ class CollectionsController < ApplicationController
         if Current.user == nil
             redirect_to sign_in_path
         else
-        @pagy, @collections = pagy(Collection.where(user_id: Current.user.id).order("created_at DESC"), items: 9)
-        #@pagy, @collections = pagy(Collection.)
+        #@pagy, @collections = pagy(Collection.where(user_id: Current.user.id).order("created_at DESC"), items: 9)
+        @pagy, @collections = pagy(Current.user.collection.order("created_at DESC"), items: 9)
         end
     end
 
