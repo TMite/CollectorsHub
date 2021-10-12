@@ -59,6 +59,10 @@ class PostsController < ApplicationController
     #   end
     def change
         Current.user.update(SFW: !Current.user.SFW)
+        redirect_to filter_posts_path
+    end
+
+    def filter
         if Current.user.SFW == true
             @pagy, @posts = pagy(Post.all.where(SFW: true).order("created_at DESC"), items: 9)
         else

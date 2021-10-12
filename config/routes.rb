@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :posts do 
     collection do 
       get :change
+      get :filter
     end
     resources :comments
   end

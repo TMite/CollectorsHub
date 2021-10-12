@@ -7,3 +7,20 @@
 {
     display: inline-block;
 }
+.fit{
+    display: flex;
+}
+.postBack{
+    border: 3px solid rgb(4, 77, 4);
+
+  }
+  .transformPost{
+    transform: translateX(25px);
+  }
+  .marginInner{
+      margin: 3px;
+  }
+  .testBorder{
+      border-collapse: collapse;
+      table-layout: auto;
+  }
