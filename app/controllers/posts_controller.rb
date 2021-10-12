@@ -4,7 +4,8 @@ class PostsController < ApplicationController
     before_action :get_posts, only: [:change, :index, :show, :edit, :update, :destroy]
     #@switch = false
     def index
-        @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
+        @q = Post.ransack(params[:q])
+        @pagy, @posts = pagy(@q.result, items: 9)
         #@pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
 
@@ -48,15 +49,6 @@ class PostsController < ApplicationController
         end      
     end
 
-    #   def change
-    #       @posts.each do |post|
-    #           #post.toggle!(:SFW)
-    #           post.update(SFW: !post.SFW?)
-    #       end
-    #       #redirect_to posts_path
-    #       @pagy, @posts = pagy(Post.all.where(SFW: true).order("created_at DESC"), items: 9)
-    #       render 'index'
-    #   end
     def change
         Current.user.update(SFW: !Current.user.SFW)
         redirect_to filter_posts_path

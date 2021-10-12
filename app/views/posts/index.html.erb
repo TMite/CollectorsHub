@@ -1,5 +1,22 @@
 <h1>General Posts</h1>
 <br>
+<%= search_form_for @q do |f| %>
+
+  <%
+=begin%>
+ <%= f.label :tags_Tag_Name_cont %>
+  <%= f.search_field :tags_Tag_Name_cont %> 
+<%
+=end%>
+
+  <%= f.label "Tags" %>
+  <%= f.search_field :tags_Tag_Name_cont %>
+
+  <%= f.label "Title" %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+<% end %>
 <div id = "outer">
 <div class = "inner"><%=button_to "Change", change_posts_path, method: :get %></div>
 <div class = "inner"><%=button_to "Show All", posts_path, method: :get %></div>
