@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_034028) do
+ActiveRecord::Schema.define(version: 2021_10_14_202059) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_034028) do
     t.integer "user_id"
     t.boolean "SFW"
     t.boolean "Private"
+    t.string "AllTags"
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
@@ -70,12 +71,13 @@ ActiveRecord::Schema.define(version: 2021_10_11_034028) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
+    t.string "Title"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.boolean "SFW"
+    t.string "AllTags"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

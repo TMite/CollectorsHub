@@ -14,11 +14,15 @@
  *= require_self
  */
 
-body{
-    margin: 50px;
-    background-color: rgb(184, 177, 197);
+body{  
+    margin: 50px;    
+    background-color: rgb(109, 218, 114); 
+    background-image: url(Sakura.png);
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 h1 {
+    
     color: rgb(0, 2, 0);
   }
 
@@ -33,7 +37,7 @@ h2 {
   font-weight: 900;
 }
 ::-webkit-scrollbar{
-  width: 2em
+  width: 1em
 }
 
 ::-webkit-scrollbar-track{
@@ -42,7 +46,8 @@ h2 {
 
 ::-webkit-scrollbar-thumb{
   background: hsl(120 75% 50%/1);
+  border-radius: 100vw
 }
 ::-webkit-scrollbar-thumb:hover{
-  background: hsl(120 75% 50%/1);
+  background: hsl(120 75% 25%/1);
 }

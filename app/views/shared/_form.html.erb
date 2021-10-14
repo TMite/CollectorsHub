@@ -1,7 +1,7 @@
 <%= form_for @post do |f| %>
 
 <div class="field form-group">
-    <%= f.label :title %>
+    <%= f.label :Title %>
     <%= f.text_field :title %><br>
 </div>
 <br>
@@ -21,8 +21,14 @@
 </div>
 <br>
 <div class="field form-group">
-    <%= f.label :all_tags %>
-    <%= f.text_field :all_tags%><br>
+    <%= f.label :AllTags %>
+    <%= f.text_field :AllTags%><br>
+    <%
+=begin%>
+ <%= f.label :all_tags, type: :hidden %>
+    <%= f.text_field :all_tags, type: :hidden%><br> 
+<%
+=end%>
 </div>
 <br>
 <div class="field form-group">

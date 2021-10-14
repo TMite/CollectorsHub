@@ -2,13 +2,18 @@
     <h1>Your Collections</h1>
 </div>
 <br>
+<%= render "shared/filterForm" %>
+<br>
+<div id = "outer">
+<div class = "inner"><%=button_to "Show All", collections_path, method: :get %></div>
+</div><br>
 <div class="container">
-    <div class="row">
+    <div class="grid-3-columns">
     <%if Current.user.id != nil %>
         <% @collections.each do |collection|%>
         
             <%if collection.user_id == Current.user.id %>
-                <div class="col-md-4">
+                <div class="item">
                     <div class="collections-font-Description-H">
                         <p><h2><em><%= link_to collection.Title, collection, class: "nav-link" %></em></h2></p>
                     </div>

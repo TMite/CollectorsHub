@@ -5,8 +5,8 @@ class CollectionsController < ApplicationController
         if Current.user == nil
             redirect_to sign_in_path
         else
-        #@pagy, @collections = pagy(Collection.where(user_id: Current.user.id).order("created_at DESC"), items: 9)
-        @pagy, @collections = pagy(Current.user.collection.order("created_at DESC"), items: 9)
+            @q = Collection.ransack(params[:q])
+            @pagy, @collections = pagy(@q.result, items: 9)
         end
     end
 
@@ -58,7 +58,7 @@ class CollectionsController < ApplicationController
     end
 
     def collection_params
-        params.require(:collection).permit(:Title, :Description, :SFW, :Private, :image, :all_tags, :user_id)
+        params.require(:collection).permit(:Title, :Description, :SFW, :Private, :image, :AllTags, :all_tags, :user_id)
     end
 end
 

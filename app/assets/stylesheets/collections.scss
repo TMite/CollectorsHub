@@ -12,6 +12,7 @@
     width: 100%;
     position: relative;
     border: 3px solid green;
+    background-image: url(../images/Frank.gif);
     background-color: rgb(253, 251, 255);
   }
   .collectionBack{
@@ -21,8 +22,5 @@
 
   .transformPage{
     transform: translateX(100px);
-  }
-  .item:hover{
-    border: 1.5px solid green
   }
   

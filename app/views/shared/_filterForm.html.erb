@@ -1,0 +1,19 @@
+<%= search_form_for @q do |f| %>
+
+<div id = "outer">
+<div class = "inner">
+  <%= f.label "Tags" %>
+  <%= f.search_field :AllTags_cont %>
+  </div>
+<div class = "inner">
+  <%= f.label "Title" %>
+  <%= f.search_field :Title_cont %>
+  </div>
+  <br>
+  <div class = "inner">
+  <%= f.label "SFW" %>
+  <%= f.check_box :SFW_true%>
+    </div>
+  <%= f.submit %>
+</div>
+<% end %>

@@ -1,45 +1,28 @@
+<div class="d-flex align-items-center justify-content-center">
 <h1>General Posts</h1>
+</div>
 <br>
-<%= search_form_for @q do |f| %>
-
-  <%
-=begin%>
- <%= f.label :tags_Tag_Name_cont %>
-  <%= f.search_field :tags_Tag_Name_cont %> 
-<%
-=end%>
-
-  <%= f.label "Tags" %>
-  <%= f.search_field :tags_Tag_Name_cont %>
-
-  <%= f.label "Title" %>
-  <%= f.search_field :title_cont %>
-
-  <%= f.submit %>
-<% end %>
+<%= render "shared/filterForm" %>
 <div id = "outer">
-<div class = "inner"><%=button_to "Change", change_posts_path, method: :get %></div>
+<div class = "inner"><%=button_to "Change SFW/NSFW", change_posts_path, method: :get %></div>
 <div class = "inner"><%=button_to "Show All", posts_path, method: :get %></div>
 </div>
 <br>
-    <div class="row">
+    <div class="grid-3-columns">
         <% @posts.each do |post|%>
             
-                <div class="col-md-4 item">
-                    <div class="transformPost">
-                    <h2><%= post.title %></h2>                   
+                <div class="item">
+                    <h2><%= post.Title %></h2>                   
                     <%=User.find(post.user_id).username%>                    
                     <br>
-                    <%= image_tag(post.image, style: 'width: 90%') %>
-                    <div class = "col-md-6"><%= truncate(post.body, :length => 50)%></div>
+                    <%= image_tag(post.image, style: 'width: 50%') %>
                     <br>
                     <%= button_to "Read Post", post, method: :get %>
-                    </div>
-                </div>              
+                </div>             
             
         <%end %>
     </div>
 <br>
-<div >
+<div class = "transformPost">
 <%= pagy_bootstrap_nav(@pagy).html_safe%>
 </div>

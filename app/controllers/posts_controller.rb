@@ -74,7 +74,7 @@ class PostsController < ApplicationController
         @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
     def post_params
-        params.require(:post).permit(:title, :body, :SFW, :image, :all_tags, :user_id)
+        params.require(:post).permit(:title, :body, :SFW, :image, :AllTags, :all_tags, :user_id)
     end
 end
 
