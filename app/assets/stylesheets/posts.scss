@@ -25,12 +25,7 @@
       table-layout: auto;
   }
   .item:hover{
-      border: 3px solid green
+      border: 3px solid green;
   }
-.grid-3-columns{
-      margin: auto;
-      width: min(90%);
-      display:grid;
-      grid-template-columns: 33% 33% 33%;
-      gap: 2em
-  }
+
+  

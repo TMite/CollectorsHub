@@ -4,20 +4,19 @@
 <br>
 <%= render "shared/filterForm" %>
 <div id = "outer">
-<div class = "inner"><%=button_to "Change SFW/NSFW", change_posts_path, method: :get %></div>
 <div class = "inner"><%=button_to "Show All", posts_path, method: :get %></div>
 </div>
 <br>
     <div class="grid-3-columns">
         <% @posts.each do |post|%>
             
-                <div class="item">
-                    <h2><%= post.Title %></h2>                   
-                    <%=User.find(post.user_id).username%>                    
+                <div class="outer">
+                    <div class="inner"><h2><%= post.Title %></h2> </div>                  
+                    <div class="inner"><%=User.find(post.user_id).username%></div>                    
                     <br>
-                    <%= image_tag(post.image, style: 'width: 50%') %>
+                    <div class="inner item"><%= link_to(image_tag(post.image, style: 'width: 100%'), post) %></div>
                     <br>
-                    <%= button_to "Read Post", post, method: :get %>
+                    <div class="inner"><%= button_to "Read Post", post, method: :get %></div>
                 </div>             
             
         <%end %>

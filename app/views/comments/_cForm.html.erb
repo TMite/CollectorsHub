@@ -1,7 +1,11 @@
 <%= form_for ([@post,@post.comments.build]) do |f|%>
+    <%if Current.user != nil %>
     <p>
         <%=f.text_field :email, value: Current.user.username, type: :hidden %>
     </p>
+    <%else %>
+        <%f.text_field :email, value: "Anon", type: :hidden %>
+    <%end %>
     <p><%=f.label :body %>
     <%= f.text_area :body %>
     </p>
