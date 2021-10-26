@@ -1,9 +1,17 @@
 class PostsController < ApplicationController   
     before_action :find_post, only: [:show, :edit, :update, :destroy]
-    before_action :find_user, only: [:show, :edit, :update, :destroy]
-    before_action :get_posts, only: [:change, :index, :show, :edit, :update, :destroy]
-    #@switch = false
+    before_action :find_user, only: [:others, :show, :edit, :update, :destroy]
+    before_action :get_posts, only: [:index, :show, :edit, :update, :destroy]
+    PostUser = "";
     def index
+        if params[:q]
+            params[:q][:groupings] = []
+            splitTags = params[:q][:AllTags_cont].split(',')
+            params[:q][:AllTags_cont].clear
+            splitTags.each_with_index do |word, index|
+            params[:q][:groupings][index] = {AllTags_cont: word}
+            end
+        end
         @q = Post.ransack(params[:q])
         @pagy, @posts = pagy(@q.result, items: 9)
         #@pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
@@ -27,11 +35,15 @@ class PostsController < ApplicationController
     end
 
     def show
-
+        PostUser.replace @post.user.username
     end
   
     def edit
         
+    end
+    def others
+        @puser = User.find_by(username: PostUser)
+        render 'others'
     end
     def update
         if @post.update(post_params)
@@ -47,20 +59,6 @@ class PostsController < ApplicationController
             @post.destroy
             redirect_to root_path, notice: "Post Deleted"
         end      
-    end
-
-    def change
-        Current.user.update(SFW: !Current.user.SFW)
-        redirect_to filter_posts_path
-    end
-
-    def filter
-        if Current.user.SFW == true
-            @pagy, @posts = pagy(Post.all.where(SFW: true).order("created_at DESC"), items: 9)
-        else
-            @pagy, @posts = pagy(Post.all.where(SFW: false).order("created_at DESC"), items: 9)
-        end
-        render 'index'
     end
     private
 

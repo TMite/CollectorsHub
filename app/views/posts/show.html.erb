@@ -1,6 +1,6 @@
-<h1><%=@post.Title %> </h1>
+<h1><%=@post.title %> </h1>
 <div>
-    <%=User.find(@post.user_id).username%>
+    <%=link_to @post.user.username, others_posts_path%>
 </div>
 <div>
     <%=@post.body %>

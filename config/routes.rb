@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   resources :main
   resources :posts do 
     collection do 
-      get :change
-      get :filter
+      get :others
     end
     resources :comments
   end
-  resources :collections
+  resources :collections do 
+    collection do 
+      
+    end
+  end
   resources :profiles
   
   get "password", to:"passwords#edit", as: :edit_password

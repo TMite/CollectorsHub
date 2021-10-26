@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController 
     before_action :find_collection, only: [:show, :edit, :update, :destroy]
-    before_action :find_collections, only: [:show, :edit, :update, :destroy]
+    before_action :find_collections, only: [:edit, :update, :destroy]
     def index
         if Current.user == nil
             redirect_to sign_in_path
@@ -27,7 +27,7 @@ class CollectionsController < ApplicationController
         # if Current.user.id != @collection.user_id
         #     redirect_to root_path, notice: "You can't access that collection"
         # end
-        if Current.user.id != @collection.user_id
+        if Current.user.id != @collection.user_id && @collection.Private == true
             redirect_to collections_path, notice: "You can't access that collection"
         end
     end
@@ -35,6 +35,7 @@ class CollectionsController < ApplicationController
     def edit
     
     end
+
 
     def update
         if @collection.update(collection_params)
@@ -44,7 +45,7 @@ class CollectionsController < ApplicationController
         end
     end
     def destroy
-        @collection.destroy
+        @collection.delete
         redirect_to root_path
     end
 
@@ -54,11 +55,11 @@ class CollectionsController < ApplicationController
         @collection = Collection.find(params[:id])
     end
     def find_collections
-        @pagy, @collections = pagy(Collection.all.order("created_at ASC"))
+        @pagy, @collections = pagy(Current.user.collection.order("created_at ASC"))
     end
-
     def collection_params
-        params.require(:collection).permit(:Title, :Description, :SFW, :Private, :image, :AllTags, :all_tags, :user_id)
+        params.require(:collection).permit(:title, :Description, :SFW, :Private, :image, :AllTags, :all_tags, :user_id)
     end
+    
 end
 

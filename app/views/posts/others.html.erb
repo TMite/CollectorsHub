@@ -1,34 +1,24 @@
 <div class="d-flex align-items-center justify-content-center">
-    <h1>Your Collections</h1>
+    <h1>Others Collections</h1>
 </div>
 <br>
-<%= render "shared/filterForm" %>
-<br>
 <div id = "outer">
-<div class = "inner"><%=button_to "Show All", collections_path, method: :get %></div>
+<div class = "inner"><%=button_to "Show All", others_posts_path, method: :get %></div>
 </div><br>
 <div class="container">
     <div class="grid-3-columns">
     <%if Current.user.id != nil %>
-        <% @collections.each do |collection|%>
-        
-            <%if collection.user_id == Current.user.id %>
+        <% @puser.collection.where(Private: false).each do |collection|%>
                 <div class="item">
                     <div class="collections-font-Description-H">
+                    <%= %>
                         <p><h2><em><%= link_to collection.title, collection, class: "nav-link" %></em></h2></p>
                     </div>
                     <br>
                     <%= link_to image_tag(collection.image, style: 'width: 50%'), collection %>
                 </div>
-                <%elsif collection.user_id != Current.user.id %>
-                <%next %>
-            <%end %>
         <%end %>
     <%end %>
     </div>
     <br>
-</div>
-<br>
-<div >
-<%= pagy_bootstrap_nav(@pagy).html_safe%>
 </div>
