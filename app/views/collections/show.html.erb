@@ -1,18 +1,22 @@
-<h1><%=@collection.title %> </h1>
-<div>
-    <%= image_tag(@collection.image, style: 'width: 35%')%>
+<div class="center">
+    <h1><%=@collection.title %> </h1>
+    <div>
+        <%= image_tag(@collection.image, style: 'width: 35%')%>
+    </div>
+    <br>
+    <div class="collections-fonts-Description-H">   
+        <p>Description:</p>   
+    </div>
+    <div class="collections-fonts-Description-B">
+        <p><%=@collection.Description %></p>
+    </div>
+    <br>
+    <%=@collection.AllTags %>
+    <br>
+    <%=@collection.SFW %>
+    <%if Current.user.id == @collection.user_id %>
+        <%= button_to "Edit Description", edit_collection_path(@collection), method: :get, class: "btn btn-primary" %>
+        <br>
+        <%= button_to "Delete", collection_path(@collection), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?"} %>
+    <%end %>
 </div>
-<br>
-<div class="collections-fonts-Description-H">   
-    <p>Description:</p>   
-</div>
-<div class="collections-fonts-Description-B">
-    <p><%=@collection.Description %></p>
-</div>
-<br>
-<%=@collection.AllTags %>
-<br>
-<%=@collection.SFW %>
-<%= button_to "Edit Description", edit_collection_path(@collection), method: :get, class: "btn btn-primary" %>
-<br>
-<%= button_to "Delete", collection_path(@collection), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?"} %>

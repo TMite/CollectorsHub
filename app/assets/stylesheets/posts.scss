@@ -25,7 +25,10 @@
       table-layout: auto;
   }
   .item:hover{
-      border: 3px solid green;
+      outline:auto;
+      outline-style: ridge;
+      outline-color: rgb(5, 114, 19);
+      //border: 3px solid green;
   }
 
   

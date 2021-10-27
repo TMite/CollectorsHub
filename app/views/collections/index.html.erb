@@ -7,7 +7,6 @@
 <div id = "outer">
 <div class = "inner"><%=button_to "Show All", collections_path, method: :get %></div>
 </div><br>
-<div class="container">
     <div class="grid-3-columns">
     <%if Current.user.id != nil %>
         <% @collections.each do |collection|%>
@@ -18,7 +17,7 @@
                         <p><h2><em><%= link_to collection.title, collection, class: "nav-link" %></em></h2></p>
                     </div>
                     <br>
-                    <%= link_to image_tag(collection.image, style: 'width: 50%'), collection %>
+                    <%= link_to image_tag(collection.image, style: 'width: 100%'), collection %>
                 </div>
                 <%elsif collection.user_id != Current.user.id %>
                 <%next %>
@@ -27,8 +26,8 @@
     <%end %>
     </div>
     <br>
-</div>
 <br>
 <div >
 <%= pagy_bootstrap_nav(@pagy).html_safe%>
 </div>
+<br>

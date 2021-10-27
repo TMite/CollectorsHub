@@ -18,7 +18,7 @@ body{
     margin: 50px;    
     background-color: rgb(109, 218, 114); 
     background-image: url(Sakura.png);
-    background-repeat: no-repeat;
+    background-repeat:repeat;
     background-size:cover;
 }
 h1 {

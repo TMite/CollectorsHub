@@ -13,7 +13,7 @@ class PostsController < ApplicationController
             end
         end
         @q = Post.ransack(params[:q])
-        @pagy, @posts = pagy(@q.result, items: 9)
+        @pagy, @posts = pagy(@q.result.order("created_at DESC"), items: 9)
         #@pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
 
@@ -42,8 +42,12 @@ class PostsController < ApplicationController
         
     end
     def others
-        @puser = User.find_by(username: PostUser)
-        render 'others'
+        if Current.user.username != PostUser
+            @puser = User.find_by(username: PostUser)
+            render 'others'
+        else
+            redirect_to collections_path
+        end
     end
     def update
         if @post.update(post_params)
