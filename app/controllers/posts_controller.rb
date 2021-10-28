@@ -13,7 +13,7 @@ class PostsController < ApplicationController
             end
         end
         @q = Post.ransack(params[:q])
-        @pagy, @posts = pagy(@q.result.order("created_at DESC"), items: 9)
+        @pagy, @posts = pagy(@q.result.order("created_at DESC"), items: 12)
         #@pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
     end
 
@@ -73,7 +73,7 @@ class PostsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
     end
     def get_posts
-        @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 9)
+        @pagy, @posts = pagy(Post.all.order("created_at DESC"))
     end
     def post_params
         params.require(:post).permit(:title, :body, :SFW, :image, :AllTags, :all_tags, :user_id)

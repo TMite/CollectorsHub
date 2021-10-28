@@ -12,12 +12,12 @@
         <% @collections.each do |collection|%>
         
             <%if collection.user_id == Current.user.id %>
-                <div class="item">
-                    <div class="collections-font-Description-H">
+                <div class="outer">
+                    <div class="collections-font-Description-H inner">
                         <p><h2><em><%= link_to collection.title, collection, class: "nav-link" %></em></h2></p>
                     </div>
                     <br>
-                    <%= link_to image_tag(collection.image, style: 'width: 100%'), collection %>
+                    <div class = "inner item"><%= link_to image_tag(collection.image, style: 'width: 100%'), collection %></div>
                 </div>
                 <%elsif collection.user_id != Current.user.id %>
                 <%next %>

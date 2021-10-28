@@ -6,7 +6,7 @@ class CollectionsController < ApplicationController
             redirect_to sign_in_path
         else
             @q = Collection.ransack(params[:q])
-            @pagy, @collections = pagy(@q.result.order("created_at DESC"), items: 9)
+            @pagy, @collections = pagy(@q.result.order("created_at DESC"), items: 12)
         end
     end
 
