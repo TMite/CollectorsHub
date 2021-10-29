@@ -73,7 +73,7 @@ class PostsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
     end
     def get_posts
-        @pagy, @posts = pagy(Post.all.order("created_at DESC"))
+        @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 12)
     end
     def post_params
         params.require(:post).permit(:title, :body, :SFW, :image, :AllTags, :all_tags, :user_id)

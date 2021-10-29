@@ -7,7 +7,7 @@
   </div>
 <div class = "inner">
   <%= f.label "Title" %>
-  <%= f.search_field :title_cont %>
+  <%= f.search_field :title_cont || :title_matches %>
   </div>
 <div class = "inner">
   <%= f.label "Username" %>
