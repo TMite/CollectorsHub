@@ -14,10 +14,10 @@
  *= require_self
  */
 
-body{  
+#background{  
     margin: 50px;    
     background-color: rgb(109, 218, 114); 
-    background-image: url(Sakura.png);
+    /* background-image: url(Sakura.png); */
     background-repeat:repeat;
     background-size:cover;
 }

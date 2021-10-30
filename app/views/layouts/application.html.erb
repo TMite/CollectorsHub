@@ -15,7 +15,7 @@
   <header>
     <%= render partial: "shared/navbar"%>
   </header>
-  <body>
+  <body id = "background">
   
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -24,6 +24,7 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
     <%= yield %>
+
   </body>
 
   <footer>
