@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "~bootstrap/scss/bootstrap";
+ #background{  
+    margin: 50px;    
+    background-color: rgb(109, 218, 114); 
+    /* background-image: url(Sakura.png); */
+    background-repeat:repeat;
+    background-size:cover;
+}
+h1 {
+    
+    color: rgb(0, 2, 0);
+  }
+
+h2 {
+    color: rgb(0, 2, 0);
+  }
+  
+.collections-fonts p{
+    color: rgb(155, 14, 14);
+}
+.bolding{
+  font-weight: 900;
+}
+::-webkit-scrollbar{
+  width: 1em
+}
+
+::-webkit-scrollbar-track{
+  background: hsl(120 80% 10%/1);
+}
+
+::-webkit-scrollbar-thumb{
+  background: hsl(120 75% 50%/1);
+  border-radius: 100vw
+}
+::-webkit-scrollbar-thumb:hover{
+  background: hsl(120 75% 25%/1);
+}
+.grid-3-columns{
+  margin: auto;
+  width: min(90%);
+  display:grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  gap: 2em
+}
+@media(max-width: 60em) {
+  .grid-3-columns{
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+@media(max-width: 45em) {
+  .grid-3-columns{
+    grid-template-columns: 49% 49%;
+  }
+}

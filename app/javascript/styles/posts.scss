@@ -1,0 +1,39 @@
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}
+.username{
+    text-align: center;
+    font-size: 1.5em;
+    color: rgb(5, 107, 13);
+}
+.fit{
+    display: flex;
+}
+.postBack{
+    border: 3px solid rgb(4, 77, 4);
+
+  }
+  .transformPost{
+    transform: translateX(25px);
+  }
+  .marginInner{
+      margin: 3px;
+  }
+  .testBorder{
+      border-collapse: collapse;
+      table-layout: auto;
+  }
+  .item:hover{
+      outline:auto;
+      outline-style: ridge;
+      outline-color: rgb(5, 114, 19);
+      //border: 3px solid green;
+  }
+
+  
