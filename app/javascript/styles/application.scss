@@ -16,20 +16,20 @@
 @import "~bootstrap/scss/bootstrap";
  .background-Green{  
     margin: 50px;    
-    background-color: rgb(109, 218, 114); 
-    /* background-image: url(Sakura.png); */
+    background-color: rgb(201, 201, 201); 
+    //background-image: url(../images/Sakura.png);
     background-repeat:repeat;
     background-size:cover;
 }
 .background-Blue{  
   margin: 50px;    
-  background-color: rgb(10, 75, 173); 
-  /* background-image: url(Sakura.png); */
+  background-color: rgb(60, 61, 61); 
+  //background-image: url(Sakura.png);
   background-repeat:repeat;
   background-size:cover;
 }
 .navbar-custom1 {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
 }
 .navbar-custom1 .navbar-brand,
 .navbar-custom1 .navbar-text {
