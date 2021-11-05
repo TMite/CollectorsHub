@@ -1,5 +1,5 @@
 class Collection < ApplicationRecord
-    has_one_attached :image
+    has_many_attached :images
     belongs_to :user
     has_many :collection_taggings, dependent: :destroy
     has_many :tags, through: :collection_taggings

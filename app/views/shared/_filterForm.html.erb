@@ -1,20 +1,20 @@
 <%= search_form_for @q do |f| %>
 
 <div id = "outer">
-<div class = "inner">
+<div class = "innerS">
   <%= f.label "Tags" %>
   <%= f.search_field :AllTags_cont %>
   </div>
-<div class = "inner">
+<div class = "innerS">
   <%= f.label "Title" %>
   <%= f.search_field :title_cont || :title_matches %>
   </div>
-<div class = "inner">
+<div class = "innerS">
   <%= f.label "Username" %>
   <%= f.search_field :user_username_matches %>
   </div>
   <br>
-  <div class = "inner">
+  <div class = "innerS">
   <%= f.label "NSFW" %>
   <%= f.check_box :SFW_false%>
   </div>

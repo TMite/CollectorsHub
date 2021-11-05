@@ -21,6 +21,7 @@ import "controllers";
 import "../styles/application.scss";
 import "../styles/collections.scss";
 import "../styles/posts.scss";
+import "../styles/slides.scss";
 
 
 

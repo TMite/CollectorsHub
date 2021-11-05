@@ -5,7 +5,7 @@
 <%= render "shared/filterForm" %>
 <br>
 <div id = "outer">
-<div class = "inner"><%=button_to "Show All", collections_path, method: :get %></div>
+<div class = "innerS"><%=button_to "Show All", collections_path, method: :get %></div>
 </div><br>
     <div class="grid-3-columns">
     <%if Current.user.id != nil %>
@@ -13,11 +13,11 @@
         
             <%if collection.user_id == Current.user.id %>
                 <div class="outer">
-                    <div class="collections-font-Description-H inner">
+                    <div class="collections-font-Description-H innerS">
                         <p><h2><em><%= link_to collection.title, collection, class: "nav-link" %></em></h2></p>
                     </div>
                     <br>
-                    <div class = "inner item"><%= link_to image_tag(collection.image, style: 'width: 100%'), collection %></div>
+                    <div class = "innerS item"><%= link_to image_tag(collection.images[0], style: 'width: 100%'), collection %></div>
                 </div>
                 <%elsif collection.user_id != Current.user.id %>
                 <%next %>

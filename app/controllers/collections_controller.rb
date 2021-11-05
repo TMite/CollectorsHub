@@ -58,7 +58,7 @@ class CollectionsController < ApplicationController
         @pagy, @collections = pagy(Current.user.collection.order("created_at DESC"))
     end
     def collection_params
-        params.require(:collection).permit(:title, :Description, :SFW, :Private, :image, :AllTags, :all_tags, :user_id)
+        params.require(:collection).permit(:title, :Description, :SFW, :Private, :AllTags, :all_tags, :user_id,images: [])
     end
     
 end

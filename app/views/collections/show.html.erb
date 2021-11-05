@@ -1,7 +1,37 @@
+<head>
+    <%= stylesheet_pack_tag 'slides', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<%radioId = 0%>
 <div class="center">
+<div class="inner">
     <h1><%=@collection.title %> </h1>
-    <div>
-        <%= image_tag(@collection.image, style: 'width: 35%')%>
+    <div class="slider">
+        <div class="slides">
+        <% (0...@collection.images.count).each do |image| %>
+            <%radioId += 1%>
+            <%radio = "radio" + radioId.to_s%>
+            <input type="radio" name="radio-btn" id="<%=radio%>">
+        <%end%>
+        <%radioId = 0%>
+        <%radio = "radio" + radioId.to_s%>
+        <div class="slide first">
+            <%= image_tag(@collection.images[0], style: 'width: 100%')%>
+        </div>
+        <% (1...@collection.images.count).each do |image| %>
+            <div class="slide">
+                <%= image_tag(@collection.images[image], style: 'width: 100%')%>
+            </div>
+            <%end%>
+            <br>
+            
+        </div>
+        <div class="manual-nav">
+            <% (0...@collection.images.count).each do |image| %>
+                <%radioId += 1%>
+                <%radio = "radio" + radioId.to_s%>
+                <label for="<%=radio%>" class="manual-btn"></label>
+            <%end%>
+            </div>
     </div>
     <br>
     <div class="collections-fonts-Description-H">   
@@ -19,4 +49,8 @@
         <br>
         <%= button_to "Delete", collection_path(@collection), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?"} %>
     <%end %>
+    </div>
 </div>
+<footer>
+    
+</footer>
