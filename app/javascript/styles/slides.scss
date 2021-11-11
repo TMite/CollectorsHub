@@ -1,18 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
-.center{
+.outerS{
     margin: auto;
-    width: 75%;
+    width: 100%;
+    border: 5px solid #FFFF00;
+    justify-content: right;
+    align-items: right;
+}
+.inner{
+    margin: auto;
+    width: 50%;
     border: 5px solid #FFFF00;
     justify-content: center;
     align-items: center;
 }
-.inner{
-    margin-left: 50%;
-    justify-content: left;
-    align-items: left;
+.inner-items{
+    width: 50%;
+    border: 5px solid #FFFF00;
+    justify-content: center;
+    align-items: center;
 }
 .slider{
-    width: 50%;
+    width: 100%;
     height: 100%;
     
     overflow: hidden;
@@ -21,6 +29,7 @@
 .slides{
     width: 500%;
     height: 100%;
+    
     display: flex;
     
 
@@ -30,7 +39,7 @@
 }
 .slide{
     width: 20%;
-    transition: 2s;
+    transition: .5s;
     
 }
 

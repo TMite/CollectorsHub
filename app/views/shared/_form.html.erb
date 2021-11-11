@@ -11,17 +11,17 @@
 </div>
 <br>
 <div class="field form-group">
-    <%= f.label :body %>
+    <%= f.label "Description" %>
     <%= f.text_area :body %><br>
 </div>
 <br>
 <div class="field form-group">
-    <%= f.label :SFW %>
+    <%= f.label "SFW?" %>
     <%= f.check_box :SFW, checked: true%><br>
 </div>
 <br>
 <div class="field form-group">
-    <%= f.label :AllTags %>
+    <%= f.label "Tags (Split the tags with a ',')" %>
     <%= f.text_field :AllTags%><br>
     <%
 =begin%>
@@ -36,3 +36,4 @@
 </div>
 <%= f.submit class: "btn btn-primary"%>
 <%end %>
+<br>
