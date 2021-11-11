@@ -3,7 +3,7 @@
 <div id = "outer">
 <div class = "innerS">
   <%= f.label "Tags" %>
-  <%= f.search_field :AllTags_cont %>
+  <%= f.search_field :AllTags_cont || :AllTags_matches %>
   </div>
 <div class = "innerS">
   <%= f.label "Title" %>
@@ -14,10 +14,14 @@
   <%= f.search_field :user_username_matches %>
   </div>
   <br>
-  <div class = "innerS">
+  <%
+=begin%>
+ <div class = "innerS">
   <%= f.label "NSFW" %>
   <%= f.check_box :SFW_false%>
-  </div>
+  </div> 
+<%
+=end%>
   <%= f.submit %>
 </div>
 <% end %>

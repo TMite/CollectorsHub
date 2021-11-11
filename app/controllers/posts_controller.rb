@@ -7,7 +7,7 @@ class PostsController < ApplicationController
         if params[:q]
             params[:q][:groupings] = []
             splitTags = params[:q][:AllTags_cont].split(',')
-            params[:q][:AllTags_cont].clear
+            # params[:q][:AllTags_cont].clear
             splitTags.each_with_index do |word, index|
             params[:q][:groupings][index] = {AllTags_cont: word}
             end
