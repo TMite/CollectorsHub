@@ -55,7 +55,6 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 1s;
-    background: solid  rgb(24, 54, 221);
 }
 
 .manual-btn:not(:last-child){
@@ -66,13 +65,17 @@
 }
 #radio1:checked ~ .first{
     margin-left: 0;
+    background:rgb(24, 54, 221);
 }
 #radio2:checked ~ .first{
     margin-left: -20%;
+    background:rgb(24, 54, 221);
 }
 #radio3:checked ~ .first{
     margin-left: -40%;
+    background:rgb(24, 54, 221);
 }
 #radio4:checked ~ .first{
     margin-left: -60%;
+    background:rgb(24, 54, 221);
 }

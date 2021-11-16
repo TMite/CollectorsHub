@@ -1,25 +1,27 @@
-<div class="center">
-    <h1><%=@post.title %> </h1>
-    <div>
-        <%=link_to @post.user.username, others_posts_path%>
+<div class = "outerS">
+    <div class = "inner">
+        <h1><%=@post.title %> </h1>
+        <div>
+            <%=link_to @post.user.username, others_posts_path%>
+        </div>
+        <div>
+            <%=@post.body %>
+        </div>
+        <br>
+        <div>
+            <%= image_tag(@post.image, style: 'width: 100%')%>
+        </div>
+        <br>
+        <%=@post.SFW %>
+        <br>
+        <%=@post.AllTags %>
+        <%if Current.user.id == @post.user.id%>
+        <%= button_to "Edit Post", edit_post_path(@post), method: :get, class: "btn btn-primary" %>
+        <br>
+        <%= button_to "Delete", post_path(@post), method: :delete, class: "btn btn-primary", data: { confirm: "Are you sure?"} %>
+        <%end %>
     </div>
-    <div>
-        <%=@post.body %>
-    </div>
-    <br>
-    <div>
-        <%= image_tag(@post.image, style: 'width: 50%')%>
-    </div>
-    <br>
-    <%=@post.SFW %>
-    <br>
-    <%=@post.AllTags %>
-    <%if Current.user.id == @post.user.id%>
-    <%= button_to "Edit Post", edit_post_path(@post), method: :get, class: "btn btn-primary" %>
-    <br>
-    <%= button_to "Delete", post_path(@post), method: :delete, class: "btn btn-primary", data: { confirm: "Are you sure?"} %>
-    <%end %>
-    </div>
+</div>
     <br>
     <h2> <%= @post.comments.count %> Comments</h2>
     <br>
