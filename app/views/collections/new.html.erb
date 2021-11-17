@@ -41,5 +41,9 @@
 <div class="field form-group">
     <%= f.number_field :user_id, id: :collection_user_id, class: "form-control", value: Current.user.id, type: :hidden%>
 </div>
+<br>
+<div class="field form-group">
+    <%= f.text_field :url_key, class: "form-control", value: (Random.rand(10000)*Random.rand(10000)).to_s %>
+</div>
 <%= f.submit class: "btn btn-primary" %>
 <%end %>

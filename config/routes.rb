@@ -7,11 +7,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  resources :collections do 
-    collection do 
-      
-    end
-  end
+  resources :collections
   resources :profiles
   
   get "password", to:"passwords#edit", as: :edit_password

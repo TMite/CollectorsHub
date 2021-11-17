@@ -52,13 +52,13 @@ class CollectionsController < ApplicationController
     private
 
     def find_collection
-        @collection = Collection.find(params[:id])
+        @collection = Collection.find_by(url_key: params[:id])
     end
     def find_collections
         @pagy, @collections = pagy(Current.user.collection.order("created_at DESC"))
     end
     def collection_params
-        params.require(:collection).permit(:title, :Description, :SFW, :Private, :AllTags, :all_tags, :user_id,images: [])
+        params.require(:collection).permit(:title, :Description, :SFW, :Private, :AllTags, :all_tags, :user_id, :url_key, images: [] )
     end
     
 end

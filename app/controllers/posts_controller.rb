@@ -67,7 +67,8 @@ class PostsController < ApplicationController
     private
 
     def find_post
-        @post = Post.find(params[:id])
+        #@post = Post.find_by(title: params[:id])
+        @post = Post.find_by(url_key: params[:id])
     end
     def find_user
         @user = User.find_by(id: session[:user_id])
@@ -76,7 +77,7 @@ class PostsController < ApplicationController
         @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 12)
     end
     def post_params
-        params.require(:post).permit(:title, :body, :SFW, :image, :AllTags, :all_tags, :user_id)
+        params.require(:post).permit(:title, :body, :SFW, :image, :AllTags, :all_tags, :user_id,:url_key)
     end
 end
 

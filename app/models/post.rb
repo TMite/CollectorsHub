@@ -14,4 +14,8 @@ class Post < ApplicationRecord
     def all_tags
         tags.map(&:Tag_Name).join(', ')
     end
+
+    def to_param
+        url_key
+    end
 end
