@@ -37,7 +37,7 @@
 <br>
 <br>
 <div class="field form-group">
-    <%= f.text_field :url_key, class: "form-control", value: (Random.rand(10000)*Random.rand(10000)).to_s %>
+    <%= f.text_field :url_key, class: "form-control", value: (Random.rand(10000)*Random.rand(10000)).to_s, type: :hidden %>
 </div>
 <%= f.submit class: "btn btn-primary"%>
 <%end %>
