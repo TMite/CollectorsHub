@@ -2,26 +2,22 @@
 
 <div id = "outer">
 <div class = "innerS">
-  <%= f.label "Tags" %>
+  <div class = "BoxLabel"><%= f.label "Tags" %></div>
   <%= f.search_field :AllTags_cont || :AllTags_matches %>
   </div>
 <div class = "innerS">
-  <%= f.label "Title" %>
+  <div class = "BoxLabel"><%= f.label "Title" %></div>
   <%= f.search_field :title_cont || :title_matches %>
   </div>
 <div class = "innerS">
-  <%= f.label "Username" %>
+  <div class = "BoxLabel"><%= f.label "Username" %></div>
   <%= f.search_field :user_username_matches %>
   </div>
   <br>
-  <%
-=begin%>
  <div class = "innerS">
-  <%= f.label "NSFW" %>
+  <div class = "BoxLabel"><%= f.label "NSFW" %></div>
   <%= f.check_box :SFW_false%>
-  </div> 
-<%
-=end%>
+  </div>  
   <%= f.submit %>
 </div>
 <% end %>

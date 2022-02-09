@@ -15,11 +15,13 @@
         <%=@post.SFW %>
         <br>
         <%=@post.AllTags %>
+        <%if Current.user != nil %>
         <%if Current.user.id == @post.user.id%>
         <%= button_to "Edit Post", edit_post_path(@post), method: :get, class: "btn btn-primary" %>
         <br>
         <%= button_to "Delete", post_path(@post), method: :delete, class: "btn btn-primary", data: { confirm: "Are you sure?"} %>
         <%end %>
+        <%end%>
     </div>
 </div>
     <br>

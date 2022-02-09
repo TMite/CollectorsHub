@@ -79,6 +79,11 @@ h2 {
   grid-template-columns: 24% 24% 24% 24%;
   gap: 2em
 }
+.BoxLabel{
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-decoration: underline;
+}
 @media(max-width: 60em) {
   .grid-3-columns{
     grid-template-columns: 33% 33% 33%;
